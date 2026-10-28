@@ -1,6 +1,72 @@
 import Image from 'next/image';
-const companies=[
-{id:'about-outbuild',name:'Outbuild',className:'outbuild-logo',logo:'/outbuild-logo.png',width:200,height:200,description:'Construction technology · EE. UU.',role:'Senior Full Stack Developer',dates:'Mar 2022 — Presente',summary:'Desarrollo de producto full stack para planificación de proyectos de construcción.',highlights:['Reduje el cálculo de baselines de ~10 minutos a 6 segundos, eliminando timeouts en proyectos grandes.','Desarrollé exportaciones PDF críticas y P6 XML, habilitando nuevos contratos y compatibilidad con Oracle Primavera P6.','Implementé trazabilidad de cambios en Schedule y mantengo servicios y APIs REST.'],skills:'React · TypeScript · Node.js · NestJS · MongoDB · BullMQ'},
-{id:'about-pragma',name:'Pragma',className:'pragma-logo',logo:'/pragma-logo.png',width:180,height:95,description:'Consultoría tecnológica · Colombia',role:'Frontend Developer',dates:'Nov 2021 — Mar 2022',summary:'Desarrollé funcionalidades para la intranet de Comfama, apoyando la experiencia interna de sus equipos.',highlights:['Construí interfaces con React y Gatsby e integré contenido mediante Contentful y GraphQL.','Trabajé con TypeScript y Azure dentro de un equipo de producto.'],skills:'React · Gatsby · Contentful · GraphQL · TypeScript · Azure'},
-{id:'about-pichincha',name:'Banco Pichincha',className:'pichincha-logo',logo:'/pichincha-logo.png',width:120,height:120,description:'Servicios financieros · Perú',role:'Analista de Soluciones Digitales',dates:'Nov 2019 — Oct 2021',summary:'Colaboré con la mesa ágil y el Centro de Excelencia de Soluciones Digitales para Banca Empresa.',highlights:['Diseñé automatización RPA para Cash Financiero con Python y PyAutoGUI.','Desarrollé pilotos de crédito y CREDIAPP con stack MERN, reconocidos como caso de éxito con Microsoft.'],skills:'Python · PyAutoGUI · MongoDB · React · Node.js'}];
-export function CompanyExperienceSections(){return <>{companies.map(company=><section className="company-section" id={company.id} aria-label={`Experiencia en ${company.name}`} key={company.id}><div className="shell company-shell"><article className="experience-card"><div className={`company-logo ${company.className}`}><Image src={company.logo} alt={company.name} width={company.width} height={company.height}/></div><div className="experience-content"><div className="experience-company"><h3>{company.name}</h3><span>{company.description}</span></div><div className="experience-meta"><strong>{company.role}</strong><span>{company.dates}</span></div><div className="experience-detail"><p>{company.summary}</p><ul>{company.highlights.map((highlight,index)=><li key={index}>{highlight}</li>)}</ul><div className="timeline-tags">{company.skills}</div></div></div></article></div></section>)}</>;}
+import { experience } from './data/experience';
+
+function ExperienceDetails({ item }: { item: (typeof experience)[number] }) {
+  return (
+    <div className="career-detail">
+      <h3>{item.role}</h3>
+      <p className="career-summary">{item.summary}</p>
+      <p className="career-contribution-label">Aportes</p>
+      <ul>
+        {item.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+      </ul>
+      <p className="career-skills">{item.skills}</p>
+    </div>
+  );
+}
+
+function PreviousExperience({ item }: { item: (typeof experience)[number] }) {
+  return (
+    <article className="career-previous-entry" id={item.id} aria-labelledby={`${item.id}-heading`}>
+      <div className="career-previous-meta">
+        <span className="career-dates">{item.dates}</span>
+        <div className="career-company-line">
+          <Image className="career-logo" src={item.logo} alt="" width={item.logoWidth} height={item.logoHeight} />
+          <h3 id={`${item.id}-heading`}>{item.company}</h3>
+        </div>
+        <p>{item.description}</p>
+      </div>
+      <ExperienceDetails item={item} />
+    </article>
+  );
+}
+
+const outbuild = experience[2];
+
+export function CompanyExperienceSections() {
+  return <>
+    <section className="career-previous-block" aria-labelledby="career-previous-heading">
+      <div className="shell career-previous-shell">
+        <h2 id="career-previous-heading">Banca y consultoría tecnológica.</h2>
+        <div className="career-previous-list">
+          {experience.slice(0, 2).map((item) => <PreviousExperience item={item} key={item.id} />)}
+        </div>
+      </div>
+    </section>
+
+    <section className="career-outbuild-block" id={outbuild.id} aria-labelledby="career-outbuild-heading">
+      <div className="shell career-outbuild-shell">
+        <div className="career-outbuild-copy">
+          <div className="career-outbuild-meta">
+            <Image src={outbuild.logo} alt="" width={outbuild.logoWidth} height={outbuild.logoHeight} />
+            <span>{outbuild.description}</span>
+            <span className="career-dates">{outbuild.dates}</span>
+          </div>
+          <h2 id="career-outbuild-heading">Outbuild</h2>
+          <ExperienceDetails item={outbuild} />
+        </div>
+
+        <figure className="career-product-figure">
+          <Image
+            src="/outbuild-schedule.png"
+            alt="Vista de Schedule en Outbuild con actividades de obra y su cronograma Gantt."
+            width={1920}
+            height={1080}
+            sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
+          />
+          <figcaption>Schedule · planificación de proyectos de construcción</figcaption>
+        </figure>
+      </div>
+    </section>
+  </>;
+}

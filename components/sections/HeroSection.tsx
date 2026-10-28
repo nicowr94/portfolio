@@ -1,5 +1,29 @@
-import { ArrowDownRight } from 'lucide-react';
+import { CleanArchitectureEditor } from './CleanArchitectureEditor';
 
 export function HeroSection() {
-  return <section className="hero shell" id="home"><div className="hero-copy"><div className="eyebrow"><span className="status-dot"/> DISPONIBLE · LIMA / REMOTO INTERNACIONAL</div><h1>Construyo software<br/><em>que mueve el negocio.</em></h1><p className="hero-lede">Soy Nicolás Wong, Senior Full Stack Developer. Diseño y desarrollo productos web con React, Node.js y TypeScript, desde la interfaz hasta los servicios que la hacen funcionar.</p><div className="hero-actions"><a className="button-primary" href="#work">Ver proyectos <ArrowDownRight size={16}/></a></div><div className="hero-foot"><span><span className="tiny-dot"/> Open to opportunities</span><span>Lima, Perú · UTC−5</span></div></div></section>;
+  return (
+    <section className="hero hero-portfolio" id="home">
+      <div className="hero-portfolio-layout shell">
+        <div className="hero-copy">
+          <h1>Nicolas Wong</h1>
+          <p className="hero-lede">
+            Me entusiasma tomar problemas complejos y convertirlos en experiencias digitales que se sienten simples.
+          </p>
+          <div className="eyebrow hero-availability">
+            <span className="status-dot" /> DISPONIBLE · LIMA / REMOTO INTERNACIONAL
+          </div>
+          <a
+            className="hero-linkedin"
+            href="https://www.linkedin.com/in/nicolas-wong-ramirez-928a7a210/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="hero-linkedin-mark" aria-hidden="true">in</span>
+            Ver perfil de LinkedIn
+          </a>
+        </div>
+        <CleanArchitectureEditor />
+      </div>
+    </section>
+  );
 }
