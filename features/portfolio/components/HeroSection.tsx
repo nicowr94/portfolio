@@ -7,7 +7,7 @@ export function HeroSection() {
         <div className="hero-copy">
           <h1>Nicolas Wong</h1>
           <p className="hero-lede">
-            Me entusiasma tomar problemas complejos y convertirlos en experiencias digitales que se sienten simples.
+            Soy full stack developer y me entusiasma tomar problemas complejos y convertirlos en experiencias digitales que se sienten simples.
           </p>
           <div className="eyebrow hero-availability">
             <span className="status-dot" /> DISPONIBLE · LIMA / REMOTO INTERNACIONAL
