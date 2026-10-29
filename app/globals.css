@@ -34,22 +34,16 @@ a{color:#ededf3;text-decoration:none}a:hover{color:#c3c3cc}
 @media(max-width:900px){.project-grid{grid-template-columns:1fr 1fr}.experience-card{grid-template-columns:40% minmax(0,1fr)}.company-logo{min-height:440px}.experience-content{padding:26px}}
 @media(max-width:760px){.shell{width:min(100% - 48px,560px)}.hero{min-height:calc(100svh - 68px);padding:72px 0}.hero h1{font-size:48px}.hero-foot{font-size:12px}.signal-grid>div{border-bottom-color:#70707d}.section{padding-block:72px}.project-grid{grid-template-columns:1fr}.about-section{padding:72px 0}.experience-card{grid-template-columns:1fr;border-radius:12px}.company-logo{min-height:0;aspect-ratio:1.35;border:0}.company-logo img{height:100%;max-height:100%;object-fit:contain}.experience-content{padding:24px}.tech-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.tech-item{padding:12px}.footer{padding-top:72px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-/* Cinematic forest desk hero and floating nav from the Mercury reference. */
+/* Hero and floating navigation. */
 .topbar{position:absolute;z-index:5;top:0;left:50%;transform:translateX(-50%);width:min(1200px,calc(100% - 64px));background:transparent;backdrop-filter:blur(0);transition:background .35s,backdrop-filter .35s}
 .hero{position:relative;isolation:isolate;overflow:hidden;width:100%;max-width:none;min-height:100svh;padding:130px 32px 96px;justify-content:center}
-.hero::before{content:"";position:absolute;inset:-5%;z-index:-2;background:url('/forest-desk-hero.png') center 55%/cover no-repeat;animation:forest-desk-zoom linear both;animation-timeline:scroll(root block);animation-range:0vh 100vh;will-change:transform}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(23,23,33,.42),rgba(23,23,33,.3) 40%,rgba(23,23,33,.85)),linear-gradient(90deg,rgba(23,23,33,.34),transparent 65%)}
-@keyframes forest-desk-zoom{from{transform:scale(1)}to{transform:scale(1.24)}}
 .hero-copy{max-width:700px}.hero h1{font-size:clamp(50px,7.2vw,78px)}
-@media(max-width:760px){.topbar{width:calc(100% - 48px);left:24px;transform:none}.hero{padding:120px 24px 72px}.hero::before{background-position:58% center}.hero h1{font-size:clamp(42px,12vw,60px)}}
-@media(prefers-reduced-motion:reduce){.hero::before{animation:none;transform:scale(1)}}
+@media(max-width:760px){.topbar{width:calc(100% - 48px);left:24px;transform:none}.hero{padding:120px 24px 72px}.hero h1{font-size:clamp(42px,12vw,60px)}}
 
-/* Page advances by section; the hero zoom follows that section's scroll phase. */
+/* Page advances by section. */
 html{scroll-snap-type:y mandatory;scroll-padding-top:0}
 main>section,main>footer{scroll-snap-align:start;scroll-snap-stop:always}
-.hero{view-timeline-name:--hero-scroll;view-timeline-axis:block}
-.hero::before{animation:forest-desk-zoom linear both;animation-timeline:--hero-scroll;animation-range:exit 0% exit 100%}
-@media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}.hero::before{animation:none;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}}
 
 /* One viewport per section, with one company per experience stop. */
 html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
@@ -117,7 +111,6 @@ main>section,main>footer{min-height:100svh;scroll-snap-align:start;scroll-snap-s
 
 /* Compact workbench showing a phone-related Clean Architecture example. */
 .hero-portfolio{min-height:100svh;height:100svh;padding:120px 0 80px;display:flex;align-items:center;background:#171721}
-.hero-portfolio::before,.hero-portfolio::after{content:none}
 .hero-portfolio-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(32px,4vw,56px)}
 .hero-portfolio .hero-copy{width:auto;max-width:620px;margin:0;text-align:left}
 .hero-portfolio h1{max-width:7ch;margin:0 0 26px;color:#ededf3;font-size:clamp(60px,7.5vw,96px);font-weight:480;line-height:.98;letter-spacing:-.035em}

@@ -1,4 +1,5 @@
 import technologies from '../data/technologies.json';
+import { publicAssetPath } from '../utils/publicAssetPath';
 
 const technologyGroups = [
   { name: 'Frontend', detail: 'Interfaces y experiencia de producto', items: ['React', 'TypeScript', 'Next.js', 'Angular', 'Tailwind CSS', 'shadcn/ui', 'Storybook'] },
@@ -18,7 +19,7 @@ export function TechStackSection() {
           <div className="tech-group-label"><strong>{group.name}</strong><span>{group.detail}</span></div>
           <div className={`tech-marquee tech-marquee-group group-${groupIndex + 1}`}>
             <div className="tech-marquee-row"><div className="tech-marquee-track">{[...items, ...items].map((item, index) => <a className={`tech-item${item.name === 'GitHub' ? ' github-tech-item' : ''}${item.name === 'shadcn/ui' ? ' shadcn-tech-item' : ''}${item.name === 'Prisma' ? ' prisma-tech-item' : ''}${item.name === 'Railway' ? ' railway-tech-item' : ''}${item.name === 'Codex' ? ' codex-tech-item' : ''}`} key={`${item.name}-${index}`} href={item.url} target="_blank" rel="noreferrer" aria-hidden={index >= items.length} tabIndex={index >= items.length ? -1 : undefined}>
-              <div className="tech-icon">{item.logo ? <img src={item.logo} alt="" loading="lazy"/> : <span className="tech-lettermark" aria-hidden="true">{item.mark}</span>}</div><span>{item.name}</span>
+              <div className="tech-icon">{item.logo ? <img src={publicAssetPath(item.logo)} alt="" loading="lazy"/> : <span className="tech-lettermark" aria-hidden="true">{item.mark}</span>}</div><span>{item.name}</span>
             </a>)}</div></div>
           </div>
         </section>;

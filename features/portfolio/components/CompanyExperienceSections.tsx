@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { experience } from '../data/experience';
+import { publicAssetPath } from '../utils/publicAssetPath';
 
 function ExperienceDetails({ item }: { item: (typeof experience)[number] }) {
   return (
@@ -21,7 +22,7 @@ function PreviousExperience({ item }: { item: (typeof experience)[number] }) {
       <div className="career-previous-meta">
         <span className="career-dates">{item.dates}</span>
         <div className="career-company-line">
-          <Image className="career-logo" src={item.logo} alt="" width={item.logoWidth} height={item.logoHeight} />
+          <Image className="career-logo" src={publicAssetPath(item.logo)} alt="" width={item.logoWidth} height={item.logoHeight} />
           <h3 id={`${item.id}-heading`}>{item.company}</h3>
         </div>
         <p>{item.description}</p>
@@ -48,7 +49,7 @@ export function CompanyExperienceSections() {
       <div className="shell career-outbuild-shell">
         <div className="career-outbuild-copy">
           <div className="career-outbuild-meta">
-            <Image src={outbuild.logo} alt="" width={outbuild.logoWidth} height={outbuild.logoHeight} />
+            <Image src={publicAssetPath(outbuild.logo)} alt="" width={outbuild.logoWidth} height={outbuild.logoHeight} />
             <span>{outbuild.description}</span>
             <span className="career-dates">{outbuild.dates}</span>
           </div>
@@ -58,7 +59,7 @@ export function CompanyExperienceSections() {
 
         <figure className="career-product-figure">
           <Image
-            src="/outbuild-schedule.png"
+            src={publicAssetPath('/outbuild-schedule.png')}
             alt="Vista de Schedule en Outbuild con actividades de obra y su cronograma Gantt."
             width={1920}
             height={1080}
