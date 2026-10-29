@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { experience } from './data/experience';
+import { experience } from '../data/experience';
 
 function ExperienceDetails({ item }: { item: (typeof experience)[number] }) {
   return (

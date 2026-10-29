@@ -1,4 +1,4 @@
-import { experience } from './data/experience';
+import { experience } from '../data/experience';
 
 export function CareerTimelineSection() {
   return (

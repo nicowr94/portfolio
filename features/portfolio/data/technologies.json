@@ -13,7 +13,7 @@
   {"name":"Python","url":"https://www.python.org","logo":"/tech/python.svg"},
   {"name":"Angular","url":"https://angular.dev","logo":"/tech/angular.svg"},
   {"name":"Tailwind CSS","url":"https://tailwindcss.com","logo":"/tech/tailwindcss.svg"},
-  {"name":"Codex","url":"https://openai.com/codex","logo":"https://cdn.simpleicons.org/openai"},
+  {"name":"Codex","url":"https://openai.com/codex","logo":"/tech/codex.png"},
   {"name":"Claude Code","url":"https://docs.anthropic.com/en/docs/claude-code/overview","logo":"/tech/claude.svg"},
   {"name":"Sequelize","url":"https://sequelize.org","logo":"https://cdn.simpleicons.org/sequelize"},
   {"name":"shadcn/ui","url":"https://ui.shadcn.com","logo":"https://cdn.simpleicons.org/shadcnui"},

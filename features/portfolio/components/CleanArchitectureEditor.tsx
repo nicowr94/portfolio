@@ -1,4 +1,5 @@
 import { ChevronDown, FileCode2, Folder, FolderOpen } from 'lucide-react';
+import { IDE } from '../../../components/IDE/IDE';
 
 const architectureFiles = [
   { name: 'domain', depth: 0, kind: 'folder' },
@@ -18,17 +19,7 @@ const architectureFiles = [
 
 export function CleanArchitectureEditor() {
   return (
-    <aside className="clean-editor" aria-label="Ejemplo de código con Clean Architecture para celulares">
-      <div className="clean-editor-titlebar">
-        <div className="clean-editor-window-dots" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-        <span className="clean-editor-project">phone-platform</span>
-        <span className="clean-editor-language">TypeScript</span>
-      </div>
-
+    <IDE ariaLabel="Ejemplo de código con Clean Architecture para celulares" className="clean-editor" mode="TypeScript" projectName="phone-platform">
       <div className="clean-editor-workspace">
         <nav className="clean-editor-files" aria-label="Estructura de archivos">
           <p className="clean-editor-section-label">EXPLORER</p>
@@ -93,6 +84,6 @@ export function CleanArchitectureEditor() {
           </div>
         </div>
       </div>
-    </aside>
+    </IDE>
   );
 }

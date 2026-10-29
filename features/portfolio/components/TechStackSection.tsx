@@ -1,4 +1,4 @@
-import technologies from './data/technologies.json';
+import technologies from '../data/technologies.json';
 
 const technologyGroups = [
   { name: 'Frontend', detail: 'Interfaces y experiencia de producto', items: ['React', 'TypeScript', 'Next.js', 'Angular', 'Tailwind CSS', 'shadcn/ui', 'Storybook'] },
@@ -9,8 +9,7 @@ const technologyGroups = [
 export function TechStackSection() {
   return <section className="section shell stack-section" id="stack" aria-labelledby="stack-heading">
     <div className="section-heading stack-heading">
-      <h2 id="stack-heading">Un stack para construir<br/><em>de punta a punta.</em></h2>
-      <p>Desde la interfaz y las APIs hasta los datos, el despliegue y nuevas herramientas de trabajo.</p>
+      <h2 id="stack-heading">Tecnologías<br/><em>que uso</em></h2>
     </div>
     <div className="tech-groups" aria-label="Tecnologías que uso">
       {technologyGroups.map((group, groupIndex) => {
@@ -18,13 +17,21 @@ export function TechStackSection() {
         return <section className="tech-group" key={group.name} aria-label={group.name}>
           <div className="tech-group-label"><strong>{group.name}</strong><span>{group.detail}</span></div>
           <div className={`tech-marquee tech-marquee-group group-${groupIndex + 1}`}>
-            <div className="tech-marquee-row"><div className="tech-marquee-track">{[...items, ...items].map((item, index) => <a className={`tech-item${item.name === 'GitHub' ? ' github-tech-item' : ''}`} key={`${item.name}-${index}`} href={item.url} target="_blank" rel="noreferrer" aria-hidden={index >= items.length} tabIndex={index >= items.length ? -1 : undefined}>
+            <div className="tech-marquee-row"><div className="tech-marquee-track">{[...items, ...items].map((item, index) => <a className={`tech-item${item.name === 'GitHub' ? ' github-tech-item' : ''}${item.name === 'shadcn/ui' ? ' shadcn-tech-item' : ''}${item.name === 'Prisma' ? ' prisma-tech-item' : ''}${item.name === 'Railway' ? ' railway-tech-item' : ''}${item.name === 'Codex' ? ' codex-tech-item' : ''}`} key={`${item.name}-${index}`} href={item.url} target="_blank" rel="noreferrer" aria-hidden={index >= items.length} tabIndex={index >= items.length ? -1 : undefined}>
               <div className="tech-icon">{item.logo ? <img src={item.logo} alt="" loading="lazy"/> : <span className="tech-lettermark" aria-hidden="true">{item.mark}</span>}</div><span>{item.name}</span>
             </a>)}</div></div>
           </div>
         </section>;
       })}
     </div>
-    <div className="stack-bottom"><span>IA EN EL WORKFLOW</span><span>Claude Code · Prompt Engineering · Multi-agent workflows</span></div>
+    <div className="workflow-map">
+      <h3 className="workflow-map-title">IA EN EL WORKFLOW</h3>
+      <ul className="workflow-map-items" aria-label="Herramientas y prácticas de IA">
+        <li>Claude Code</li>
+        <li>Prompt Engineering</li>
+        <li>Multi-agent workflows</li>
+        <li>Codex</li>
+      </ul>
+    </div>
   </section>;
 }

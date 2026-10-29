@@ -1,14 +1,20 @@
-import { HeroSection } from '../components/sections/HeroSection';
-import { CareerTimelineSection } from '../components/sections/CareerTimelineSection';
-import { CompanyExperienceSections } from '../components/sections/CompanyExperienceSections';
-import { ProjectsSection } from '../components/sections/ProjectsSection';
-import { SiteHeader } from '../components/sections/SiteHeader';
-import { StatsSection } from '../components/sections/StatsSection';
-import { TechStackSection } from '../components/sections/TechStackSection';
+import { Navbar } from '../components/Navbar';
+import {
+  CareerTimelineSection,
+  CompanyExperienceSections,
+  HeroSection,
+  ProjectsSection,
+  StatsSection,
+  TechStackSection,
+} from '../features/portfolio';
 
 export default function Home() {
   return <main>
-    <SiteHeader />
+    <Navbar currentPage="portfolio">
+      <a href="#work">Proyectos</a>
+      <a href="#about">Experiencia</a>
+      <a href="#stack">Stack</a>
+    </Navbar>
     <HeroSection />
     <StatsSection />
     <CareerTimelineSection />
