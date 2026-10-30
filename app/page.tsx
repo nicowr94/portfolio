@@ -1,9 +1,10 @@
 import { Navbar } from '../components/Navbar';
 import {
   CareerTimelineSection,
-  CompanyExperienceSections,
   HeroSection,
+  OutbuildExperienceSection,
   ProjectsSection,
+  PreviousExperienceSections,
   StatsSection,
   TechStackSection,
 } from '../features/portfolio';
@@ -18,8 +19,9 @@ export default function Home() {
     <HeroSection />
     <StatsSection />
     <CareerTimelineSection />
-    <CompanyExperienceSections />
+    <OutbuildExperienceSection />
     <ProjectsSection />
+    <PreviousExperienceSections />
     <TechStackSection />
   </main>;
 }

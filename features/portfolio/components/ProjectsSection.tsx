@@ -1,76 +1,81 @@
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-const projects = [
+const supportingProjects = [
   {
-    number: '01',
-    title: 'Cálculo de baselines',
-    category: 'RENDIMIENTO · OUTBUILD',
-    description: 'Reorganicé los cálculos, paralelicé consultas a la base de datos y eliminé un cuello de botella en el procesamiento de Gantt.',
-    result: 'De ~10 minutos a 6 segundos',
-    tags: ['Node.js', 'TypeScript', 'PostgreSQL'],
+    title: 'PDF más estable',
+    description: 'Mejoras continuas para un PDF más confiable.',
   },
   {
-    number: '02',
-    title: 'Exportación para Oracle Primavera P6',
-    category: 'INTEGRACIONES · OUTBUILD',
-    description: 'Creé una exportación P6 XML para conectar los cronogramas de construcción con una herramienta clave para contratistas en EE. UU.',
-    result: 'Compatibilidad con P6',
-    tags: ['Node.js', 'XML', 'Primavera P6'],
+    title: 'Schedule Change Log',
+    description: 'Cambios trazables para los usuarios.',
   },
   {
-    number: '03',
-    title: 'Historial de cambios en cronogramas',
-    category: 'DATOS · OUTBUILD',
-    description: 'Implementé trazabilidad de actividades mediante snapshots antes y después, junto con comparaciones basadas en hashes.',
-    result: 'Cambios auditables',
-    tags: ['MongoDB', 'TypeScript', 'Hashing'],
+    title: 'Baseline corregido',
+    description: 'Fallos corregidos · ~10 minutos a 6 segundos.',
   },
 ];
 
 export function ProjectsSection() {
-  const [featured, ...selected] = projects;
+  return (
+    <section
+      className="snap-start snap-always mx-auto flex min-h-svh w-[min(1200px,calc(100%-64px))] flex-col justify-center py-[clamp(28px,5vh,48px)] max-[760px]:w-[min(100%-48px,560px)] max-[760px]:py-[clamp(16px,3vh,24px)]"
+      id="work"
+      aria-labelledby="work-heading"
+    >
+      <h2
+        className="m-0 mb-[26px] text-[clamp(1.625rem,4vw,3rem)] font-normal leading-[1.1] tracking-[-.025em] text-foreground max-[760px]:mb-3.5"
+        id="work-heading"
+      >
+        Impacto en Outbuild
+      </h2>
 
-  return <section className="section shell work-section" id="work" aria-labelledby="work-heading">
-    <div className="section-heading work-heading">
-      <h2 id="work-heading">Ingeniería que se nota<br/><em>en el producto.</em></h2>
-      <p>Casos de Outbuild donde rendimiento, integraciones y trazabilidad resuelven problemas concretos de operación.</p>
-    </div>
+      <div className="grid grid-cols-[.92fr_1.08fr] gap-6 max-[760px]:grid-cols-1 max-[760px]:gap-3">
+        <div className="flex min-h-[250px] flex-col justify-between bg-company-outbuild p-[clamp(22px,3vw,32px)] text-primary-foreground max-[760px]:min-h-[164px] max-[760px]:p-5">
+          <div className="text-xs tracking-[.08em] uppercase max-[760px]:text-meta">P6 XML · P6 XER</div>
+          <div>
+            <div className="text-[clamp(3.75rem,9vw,7rem)] leading-[.9] font-medium tracking-[-.07em] max-[760px]:text-[4.625rem]">
+              EE. UU.
+            </div>
+            <div className="mt-2 text-xl leading-[1.3] max-[760px]:text-lg">Nuevos clientes</div>
+          </div>
+        </div>
 
-    <article className="featured-project" aria-labelledby="featured-project-title">
-      <div className="featured-project-copy">
-        <div className="project-category">{featured.category}</div>
-        <h3 id="featured-project-title">{featured.title}</h3>
-        <p>{featured.description}</p>
-        <div className="tag-row">{featured.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-        <a className="case-link" href="#about-outbuild">Ver experiencia en Outbuild <ArrowDownRight size={16} aria-hidden="true"/></a>
+        <div className="flex flex-col justify-center border-l border-border pl-8 max-[760px]:border-t max-[760px]:border-l-0 max-[760px]:pt-4 max-[760px]:pl-0">
+          <h3 className="mt-0 mb-2.5 text-xl leading-[1.25] font-medium text-foreground max-[760px]:text-lg">
+            Exportables P6 XML / XER
+          </h3>
+          <p className="m-0 max-w-[54ch] text-small leading-[1.5] text-secondary">
+            Integré los cronogramas de Outbuild con Oracle Primavera P6.
+          </p>
+          <figure
+            className="mt-5 mb-0"
+            aria-label="Los exportables conectan Outbuild con Oracle Primavera P6"
+          >
+            <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1.4fr)] items-center gap-3 border-b border-border pb-3">
+              <span className="text-sm leading-[1.3] text-foreground">Outbuild</span>
+              <ArrowRight className="text-company-outbuild" size={18} aria-hidden="true" />
+              <span className="text-sm leading-[1.3] text-foreground">Oracle Primavera P6</span>
+            </div>
+            <figcaption className="mt-3 text-caption leading-[1.4] text-secondary">
+              Una capacidad clave para conseguir clientes en EE. UU.
+            </figcaption>
+          </figure>
+        </div>
       </div>
-      <figure className="baseline-chart" aria-label="El cálculo pasó de aproximadamente diez minutos a seis segundos">
-        <div className="baseline-chart-head"><span>TIEMPO DE CÁLCULO</span><span>ANTES / DESPUÉS</span></div>
-        <div className="baseline-measure">
-          <span>Antes</span>
-          <div className="baseline-track" aria-hidden="true"><i className="baseline-before"/></div>
-          <strong>~10 min</strong>
-        </div>
-        <div className="baseline-measure">
-          <span>Ahora</span>
-          <div className="baseline-track" aria-hidden="true"><i className="baseline-after"/></div>
-          <strong>6 s</strong>
-        </div>
-        <figcaption><strong>99%</strong><span>menos tiempo en el cálculo</span></figcaption>
-      </figure>
-    </article>
 
-    <div className="selected-projects" aria-label="Otros proyectos seleccionados">
-      {selected.map(project => <article className="selected-project" key={project.number}>
-        <span className="selected-project-number">{project.number}</span>
-        <div className="selected-project-copy">
-          <div className="project-category">{project.category}</div>
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <div className="tag-row">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-        </div>
-        <div className="selected-project-result"><span>APORTE</span><strong>{project.result}</strong><ArrowUpRight size={18} aria-hidden="true"/></div>
-      </article>)}
-    </div>
-  </section>;
+      <div
+        className="mt-7 grid grid-cols-3 gap-x-7 max-[760px]:mt-4 max-[760px]:grid-cols-1 max-[760px]:gap-y-2.5"
+        aria-label="Otros casos de éxito en Outbuild"
+      >
+        {supportingProjects.map(({ title, description }) => (
+          <article className="border-t border-border pt-3.5 max-[760px]:pt-2.5" key={title}>
+            <h3 className="mt-0 mb-1.5 text-base leading-[1.35] font-medium text-foreground max-[760px]:mb-1 max-[760px]:text-sm">
+              {title}
+            </h3>
+            <p className="m-0 text-small leading-[1.5] text-secondary">{description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
