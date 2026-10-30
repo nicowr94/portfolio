@@ -34,7 +34,7 @@ export const blogMenu: BlogMenuFolder[] = [
         readTime: 'LECTURA · 6 MIN',
         slug: 'red-social-sin-arquitectura',
         status: 'published',
-        title: 'Una red social sin límites claros',
+        title: 'Ejemplo ficticio: una red social sin límites claros',
       },
       {
         category: 'ARQUITECTURA DE SOFTWARE',

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { isExampleFolder, socialNetworkExample, type ExampleFile, type ExampleFolder } from '../../data/socialNetworkExample';
 
 export function useSocialNetworkProjectExplorer() {
-  const [selectedPath, setSelectedPath] = useState('red-social/server/src/routes/posts.js');
+  const [selectedPath, setSelectedPath] = useState('red-social/server/posts.js');
 
   function findFile(folder: ExampleFolder, path: string, parentPath = ''): ExampleFile | null {
     const currentPath = parentPath ? `${parentPath}/${folder.name}` : folder.name;

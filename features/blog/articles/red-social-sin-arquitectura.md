@@ -1,4 +1,4 @@
-# Una red social sin límites claros
+# Ejemplo ficticio: una red social sin límites claros
 
 Un proyecto nuevo empieza rápido. Luego crece y cambiar una pantalla o un endpoint obliga a entender reglas, base de datos, notificaciones y respuesta HTTP mezcladas en el mismo sitio.
 
@@ -8,7 +8,7 @@ Imaginemos una red social nueva hecha con React en la web y Express sobre Node.j
 
 Por ahora, alguien puede escribir una publicación, guardarla y avisar a sus seguidores. El proyecto va creciendo sin acordar límites claros. Abre las carpetas y archivos para ver una versión simplificada:
 
-La carpeta `auth` da contexto de otras partes del proyecto. En este artículo solo se pueden abrir los archivos del caso de estudio: crear una publicación en el frontend y en el backend.
+El proyecto se divide en dos partes: `client` contiene el formulario y `server` recibe la petición, guarda la publicación y avisa a sus seguidores. Abre `PostForm.jsx` y `posts.js` para seguir el mismo flujo en ambos lados.
 
 :::social-network-explorer
 

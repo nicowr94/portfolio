@@ -15,26 +15,12 @@ export function isExampleFolder(item: ExampleFile | ExampleFolder): item is Exam
 export const socialNetworkExample: ExampleFolder = {
   name: 'red-social',
   children: [
-    { name: 'package.json', contents: null },
     {
       name: 'client',
       children: [
         {
-          name: 'src',
-          children: [
-            {
-              name: 'auth',
-              children: [
-                { name: 'LoginForm.jsx', contents: null },
-                { name: 'authApi.js', contents: null },
-              ],
-            },
-            {
-              name: 'posts',
-              children: [
-                {
-                  name: 'PostForm.jsx',
-                  contents: `import { useState } from 'react';
+          name: 'PostForm.jsx',
+          contents: `import { useState } from 'react';
 
 export function PostForm() {
   const [text, setText] = useState('');
@@ -66,12 +52,6 @@ export function PostForm() {
     </form>
   );
 }`,
-                },
-                { name: 'Feed.jsx', contents: null },
-              ],
-            },
-            { name: 'App.jsx', contents: null },
-          ],
         },
       ],
     },
@@ -79,22 +59,9 @@ export function PostForm() {
       name: 'server',
       children: [
         {
-          name: 'src',
-          children: [
-            {
-              name: 'auth',
-              children: [
-                { name: 'auth.routes.js', contents: null },
-                { name: 'requireAuth.js', contents: null },
-              ],
-            },
-            {
-              name: 'routes',
-              children: [
-                {
-                  name: 'posts.js',
-                  contents: `import { database } from '../database.js';
-import { notifyFollowers } from '../notifications.js';
+          name: 'posts.js',
+          contents: `import { database } from './database.js';
+import { notifyFollowers } from './notifications.js';
 
 export async function createPost(request, response) {
   // Sesión, regla, SQL, notificación y respuesta HTTP juntos.
@@ -113,14 +80,9 @@ export async function createPost(request, response) {
   await notifyFollowers(authorId, text);
   return response.status(201).json(post);
 }`,
-                },
-              ],
-            },
-            { name: 'database.js', contents: null },
-            { name: 'notifications.js', contents: null },
-            { name: 'app.js', contents: null },
-          ],
         },
+        { name: 'database.js', contents: null },
+        { name: 'notifications.js', contents: null },
       ],
     },
   ],
