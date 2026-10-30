@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { BlogIDE } from '../../../features/blog';
+import { BlogLayout } from '../../../features/blog';
 import { getPublishedBlogEntries, loadBlogArticle } from '../../../features/blog/server';
 
 type BlogArticlePageProps = {
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
   const article = await loadBlogArticle(slug);
 
   return article
-    ? { title: `${article.fileName.replace('.md', '')} — Nicolas Wong`, description: article.category }
+    ? { title: `${article.title} — Nicolas Wong`, description: article.description }
     : {};
 }
 
@@ -26,5 +26,5 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
   if (!article) notFound();
 
-  return <BlogIDE article={article} />;
+  return <BlogLayout article={article} />;
 }

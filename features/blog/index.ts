@@ -1,1 +1,1 @@
-export { BlogIDE } from './components/BlogIDE';
+export { BlogLayout } from './components/BlogLayout';
