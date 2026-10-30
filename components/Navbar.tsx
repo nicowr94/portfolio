@@ -51,7 +51,7 @@ export function Navbar({ children, currentPage }: NavbarProps) {
         {isBlog ? <Link href="/">Portafolio</Link> : <Link href="/blog">Blog</Link>}
       </nav>
       {!isBlog ? (
-        <Link className="group ml-auto inline-flex items-center gap-[15px] justify-self-end rounded-lg border border-primary bg-primary py-[5px] pr-1.5 pl-4 text-small font-semibold text-primary-foreground no-underline transition hover:-translate-y-px hover:border-primary-hover hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring max-[390px]:gap-2 max-[390px]:pl-[11px] max-[390px]:text-xs" href="#contact">
+        <Link className="group ml-auto inline-flex items-center gap-[15px] justify-self-end rounded-lg border border-primary bg-primary py-[5px] pr-1.5 pl-4 text-small font-semibold text-primary-foreground no-underline transition hover:-translate-y-px hover:border-primary-hover hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring max-[840px]:hidden max-[390px]:gap-2 max-[390px]:pl-[11px] max-[390px]:text-xs" href="#contact">
           Hablemos <ArrowUpRight className="box-content size-[18px] rounded-[5px] bg-primary-foreground p-[7px] text-primary transition-transform group-hover:translate-x-px group-hover:-translate-y-px max-[390px]:size-4" size={15} aria-hidden="true" />
         </Link>
       ) : null}
