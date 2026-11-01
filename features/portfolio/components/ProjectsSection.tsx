@@ -1,23 +1,17 @@
-const impactCases = [
+import { ArrowRight } from 'lucide-react';
+
+const supportingProjects = [
   {
-    title: 'Exportables para Oracle Primavera P6',
-    description: 'Desarrollé los formatos XML y XER para integrar los cronogramas de Outbuild con Primavera P6.',
-    result: 'Nuevos clientes en EE. UU.',
+    title: 'PDF más estable',
+    description: 'Mejora continua del exportable.',
   },
   {
-    title: 'Exportación PDF más estable',
-    description: 'Mejoré continuamente su estabilidad y confiabilidad para los usuarios.',
-    result: 'Más estabilidad',
+    title: 'Cambios trazables',
+    description: 'Schedule Change Log para usuarios.',
   },
   {
-    title: 'Schedule Change Log',
-    description: 'Los usuarios pueden consultar y comparar los cambios de cada cronograma.',
-    result: 'Trazabilidad',
-  },
-  {
-    title: 'Baseline estable y más rápido',
-    description: 'Corregí fallos en proyectos grandes y optimicé el cálculo.',
-    result: '~10 min → 6 s',
+    title: 'Baseline corregido',
+    description: 'Fallos resueltos · ~10 min a 6 s.',
   },
 ];
 
@@ -35,35 +29,58 @@ export function ProjectsSection() {
         Impacto en Outbuild
       </h2>
 
-      <div className="relative">
-        <span
-          aria-hidden="true"
-          className="absolute top-[7px] bottom-[15px] left-[7px] w-px bg-border"
-        />
-        <ol aria-label="Casos de éxito en orden de impacto" className="m-0 grid list-none p-0">
-          {impactCases.map(({ title, description, result }, index) => (
-            <li
-              className="relative grid grid-cols-[16px_minmax(0,1fr)_190px] items-start gap-x-4 pb-5 last:pb-0 max-[760px]:grid-cols-[16px_minmax(0,1fr)] max-[760px]:gap-x-3 max-[760px]:pb-3.5"
-              key={title}
-            >
-              <span
-                aria-hidden="true"
-                className={`relative z-10 mt-[3px] size-[15px] rounded-full border border-company-outbuild bg-background ${index === 0 ? 'bg-company-outbuild' : ''}`}
-              />
-              <div className="max-w-[62ch]">
-                <h3 className="m-0 text-base leading-[1.35] font-medium text-foreground max-[760px]:text-sm">
-                  {title}
-                </h3>
-                <p className="mt-1 mb-0 text-small leading-[1.5] text-secondary max-[760px]:text-caption">
-                  {description}
-                </p>
+      <div className="grid grid-cols-[.92fr_1.08fr] gap-6 max-[760px]:grid-cols-1 max-[760px]:gap-3">
+        <div className="flex min-h-[250px] flex-col justify-between bg-primary p-[clamp(22px,3vw,32px)] text-primary-foreground max-[760px]:min-h-[164px] max-[760px]:p-5">
+          <div className="text-xs tracking-[.08em] uppercase max-[760px]:text-meta">P6 XML · P6 XER</div>
+          <div>
+            <div className="text-[clamp(3.75rem,9vw,7rem)] leading-[.9] font-medium tracking-[-.07em] max-[760px]:text-[4.625rem]">
+              EE. UU.
+            </div>
+            <div className="mt-2 text-xl leading-[1.3] max-[760px]:text-lg">Nuevos clientes</div>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center border-l border-border pl-8 max-[760px]:border-t max-[760px]:border-l-0 max-[760px]:pt-4 max-[760px]:pl-0">
+          <h3 className="mt-0 mb-2.5 text-xl leading-[1.25] font-medium text-foreground max-[760px]:text-lg">
+            Una integración que abrió mercado
+          </h3>
+          <p className="m-0 max-w-[54ch] text-small leading-[1.5] text-secondary">
+            Desarrollé exportables para llevar cronogramas de Outbuild a Oracle Primavera P6.
+          </p>
+          <figure
+            className="mt-5 mb-0"
+            aria-label="Los exportables conectan Outbuild con Oracle Primavera P6"
+          >
+            <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1.4fr)] items-center gap-3 border-b border-border pb-3">
+              <div>
+                <div className="text-caption tracking-[.1em] text-subtle">ORIGEN</div>
+                <span className="text-sm leading-[1.3] text-foreground">Outbuild</span>
               </div>
-              <p className="m-0 pt-px text-right text-small leading-[1.45] font-medium text-company-outbuild max-[760px]:col-start-2 max-[760px]:pt-1 max-[760px]:text-left max-[760px]:text-caption">
-                {result}
-              </p>
-            </li>
-          ))}
-        </ol>
+              <ArrowRight className="text-primary" size={18} aria-hidden="true" />
+              <div>
+                <div className="text-caption tracking-[.1em] text-subtle">DESTINO</div>
+                <span className="text-sm leading-[1.3] text-foreground">Oracle Primavera P6</span>
+              </div>
+            </div>
+            <figcaption className="mt-3 text-caption leading-[1.6] tracking-[.08em] text-secondary">
+              CAPACIDAD CLAVE PARA CONSEGUIR CLIENTES EN EE. UU.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div
+        className="mt-7 grid grid-cols-3 gap-x-7 max-[760px]:mt-4 max-[760px]:grid-cols-1 max-[760px]:gap-y-2.5"
+        aria-label="Otros casos de éxito en Outbuild"
+      >
+        {supportingProjects.map(({ title, description }) => (
+          <article className="border-t border-border pt-3.5 max-[760px]:pt-2.5" key={title}>
+            <h3 className="mt-0 mb-1.5 text-base leading-[1.35] font-medium text-foreground max-[760px]:mb-1 max-[760px]:text-sm">
+              {title}
+            </h3>
+            <p className="m-0 text-small leading-[1.5] text-secondary">{description}</p>
+          </article>
+        ))}
       </div>
     </section>
   );
