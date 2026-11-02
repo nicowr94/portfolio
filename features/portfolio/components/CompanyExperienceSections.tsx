@@ -37,31 +37,101 @@ function PreviousExperience({ item }: { item: (typeof experience)[number] }) {
 
 const outbuild = experience[2];
 
+const outbuildAchievements = [
+  {
+    title: 'Oracle Primavera P6: exportaciones XML y XER',
+    description: 'Habilité a Outbuild a competir por contratos de EE. UU. que exigen Oracle Primavera P6.',
+  },
+  {
+    title: 'Integraciones bidireccionales',
+    description: 'Integré Trimble, Autodesk y Procore para consultar y actualizar submittals y drawings en ambos sentidos.',
+  },
+  {
+    title: 'Schedule Changelog en MongoDB',
+    description: 'Registré el estado anterior y posterior de cada cambio para dar trazabilidad.',
+  },
+  {
+    title: 'PDF de Schedule y Lookahead',
+    description: 'Fui responsable de exportaciones clave para mantener contratos. El equipo de Producto, el CTO y el CEO reconocieron mi trabajo.',
+  },
+  {
+    title: 'Baselines de ~10 min a 6 s',
+    description: 'Reduje el cálculo un 99 % con consultas paralelas, lotes y mejoras al motor Gantt; resolví timeouts de Cloudflare.',
+  },
+  {
+    title: 'Schedule, módulo central',
+    description: 'Formé parte del equipo responsable del módulo central de Outbuild.',
+  },
+  {
+    title: 'Multicompany',
+    description: 'Desarrollé Multicompany para que un usuario pertenezca a varias compañías desde una sola cuenta, sin crear cuentas separadas.',
+  },
+  {
+    title: 'IA aplicada al desarrollo',
+    description: 'Diseñé soluciones con el líder técnico y Product Owner en refinamientos; usé Claude Code, skills, reglas, hooks y agentes múltiples para planificar, desarrollar y revisar código.',
+  },
+];
+
 export function OutbuildExperienceSection() {
   return (
-    <section className="flex min-h-svh snap-start snap-always items-center bg-background py-[clamp(64px,9vh,104px)] text-foreground max-[760px]:items-start max-[760px]:py-[76px] max-[760px]:pb-16" id={outbuild.id} aria-labelledby="career-outbuild-heading">
-      <div className="mx-auto grid w-[min(1200px,calc(100%-64px))] grid-cols-[minmax(310px,.78fr)_minmax(0,1.22fr)] items-center gap-[clamp(36px,6vw,84px)] max-[760px]:w-[min(100%-48px,560px)] max-[760px]:grid-cols-1 max-[760px]:gap-[30px]">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5 text-xs text-secondary">
-            <Image className="h-[30px] w-auto max-w-[108px] object-contain object-left" src={publicAssetPath(outbuild.logo)} alt="" width={outbuild.logoWidth} height={outbuild.logoHeight} />
-            <span>{outbuild.description}</span>
-            <span className="text-xs text-secondary">{outbuild.dates}</span>
-          </div>
-          <h2 className="mt-[18px] mb-7 text-company font-normal leading-[.98] tracking-[-.04em] text-foreground max-[760px]:mt-4 max-[760px]:mb-[22px] max-[760px]:text-company-mobile" id="career-outbuild-heading">Outbuild</h2>
-          <ExperienceDetails item={outbuild} />
-        </div>
+    <section className="flex min-h-svh snap-start snap-always items-center bg-background py-[clamp(42px,6vh,64px)] text-foreground max-[760px]:items-start max-[760px]:py-14 max-[760px]:pb-12" id={outbuild.id} aria-labelledby="outbuild-heading">
+      <div className="mx-auto w-[min(1200px,calc(100%-64px))] max-[760px]:w-[min(100%-48px,560px)]">
+        <div className="grid grid-cols-[minmax(280px,.72fr)_minmax(0,1.28fr)] items-end gap-[clamp(28px,5vw,64px)] max-[760px]:grid-cols-1 max-[760px]:gap-6">
+          <header className="min-w-0">
+            <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-2.5 text-xs text-secondary max-[760px]:mb-3">
+              <Image className="h-8 w-auto max-w-[90px] object-contain object-left" src={publicAssetPath(outbuild.logo)} alt="" width={outbuild.logoWidth} height={outbuild.logoHeight} />
+              <span>{outbuild.description}</span>
+              <span>{outbuild.dates}</span>
+            </div>
+            <h2 className="m-0 max-w-[12ch] text-[clamp(2.6rem,5.2vw,4.5rem)] font-normal leading-[.98] tracking-[-.035em] text-foreground max-[760px]:max-w-none max-[760px]:text-[clamp(2.5rem,11vw,3.5rem)]" id="outbuild-heading">
+              Impacto en Outbuild
+            </h2>
+            <p className="mb-0 mt-4 text-body-lg font-medium text-secondary max-[760px]:mt-2 max-[760px]:text-base">
+              {outbuild.role}
+            </p>
+          </header>
 
-        <figure className="m-0 min-w-0">
-          <Image
-            className="block h-auto w-full border border-border bg-background shadow-[0_28px_70px_var(--color-shadow)]"
-            src={publicAssetPath('/outbuild-schedule.png')}
-            alt="Vista de Schedule en Outbuild con actividades de obra y su cronograma Gantt."
-            width={1920}
-            height={1080}
-            sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 600px"
-          />
-          <figcaption className="mt-3.5 text-meta tracking-[.04em] text-subtle max-[760px]:text-caption">Schedule · planificación de proyectos de construcción</figcaption>
-        </figure>
+          <figure className="m-0 min-w-0">
+            <Image
+              className="block h-auto max-h-[56svh] w-full border border-border bg-background object-contain shadow-[0_28px_70px_var(--color-shadow)] max-[760px]:max-h-[42svh]"
+              src={publicAssetPath('/outbuild-schedule.png')}
+              alt="Vista de Schedule en Outbuild con actividades de obra y su cronograma Gantt."
+              width={1920}
+              height={1080}
+              sizes="(max-width: 760px) 100vw, (max-width: 1200px) 58vw, 700px"
+            />
+            <figcaption className="mt-2.5 text-meta tracking-[.04em] text-subtle max-[760px]:text-caption">Schedule · planificación de proyectos de construcción</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function OutbuildSuccessCasesSection() {
+  return (
+    <section className="flex min-h-svh snap-start snap-always items-center bg-background py-[clamp(42px,6vh,64px)] text-foreground max-[760px]:items-start max-[760px]:py-14 max-[760px]:pb-12" id="work" aria-labelledby="outbuild-cases-heading">
+      <div className="mx-auto w-[min(1200px,calc(100%-64px))] max-[760px]:w-[min(100%-48px,560px)]">
+        <h2 className="m-0 mb-7 max-w-[20ch] text-[clamp(2.25rem,4.5vw,3.75rem)] font-normal leading-[1.02] tracking-[-.03em] text-foreground max-[760px]:mb-6 max-[760px]:text-[clamp(2rem,9vw,3rem)]" id="outbuild-cases-heading">
+          Casos de éxito en Outbuild
+        </h2>
+
+        <ol aria-label="Casos de éxito en Outbuild, ordenados por impacto" className="m-0 grid list-none grid-cols-4 gap-x-5 gap-y-5 p-0 max-[900px]:grid-cols-2 max-[760px]:gap-x-4 max-[760px]:gap-y-4 max-[540px]:grid-cols-1 max-[540px]:gap-y-3">
+          {outbuildAchievements.map(({ title, description }, index) => {
+            const featured = index === 0;
+            return (
+              <li className={featured ? 'min-w-0 bg-primary p-4 text-primary-foreground max-[540px]:p-3' : 'min-w-0 border-t border-border pt-3'} key={title} value={index + 1}>
+                <span className={featured ? 'text-caption tracking-[.1em] text-primary-foreground/75' : 'text-caption tracking-[.1em] text-ring'}>{String(index + 1).padStart(2, '0')}</span>
+                <h3 className={`mb-1.5 mt-2 text-base font-medium leading-[1.3] max-[760px]:text-small ${featured ? 'text-primary-foreground' : 'text-foreground'}`}>
+                  {title}
+                </h3>
+                <p className={`mb-0 mt-0 text-small leading-[1.5] max-[760px]:text-meta ${featured ? 'text-primary-foreground/85' : 'text-secondary'}`}>
+                  {description}
+                </p>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

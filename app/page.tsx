@@ -3,7 +3,7 @@ import {
   CareerTimelineSection,
   HeroSection,
   OutbuildExperienceSection,
-  ProjectsSection,
+  OutbuildSuccessCasesSection,
   PreviousExperienceSections,
   StatsSection,
   TechStackSection,
@@ -20,7 +20,7 @@ export default function Home() {
     <StatsSection />
     <CareerTimelineSection />
     <OutbuildExperienceSection />
-    <ProjectsSection />
+    <OutbuildSuccessCasesSection />
     <PreviousExperienceSections />
     <TechStackSection />
   </main>;
